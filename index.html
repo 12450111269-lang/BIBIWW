@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bibey's Florist — Special 21st Birthday for Bibiw 💙</title>
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400;1,600&family=Playfair+Display:ital,wght@0,500;0,700;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Alex+Brush&family=Caveat:wght@600;700&display=swap" rel="stylesheet">
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <!-- Canvas Confetti -->
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.2/dist/confetti.browser.min.js"></script>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Ambient Falling Petals, Sparkles & Blue Hearts Canvas -->
+  <canvas id="ambientCanvas"></canvas>
+
+  <!-- Floating Audio Player Bar -->
+  <div class="music-floating-bar" id="musicPlayerBar">
+    <div class="music-disc-wrap" id="musicToggleBtn" title="Play / Pause Musik">
+      <div class="music-disc" id="musicDisc">
+        <span class="disc-core">💙</span>
+      </div>
+    </div>
+    <div class="music-info">
+      <span class="song-title" id="currentSongTitle">taman bunga - instrument</span>
+      <span class="song-sub" id="songPlayStatus">Klik piringan untuk putar musik 🎵</span>
+    </div>
+    <div class="music-controls">
+      <button class="music-ctrl-btn" id="prevTrackBtn" title="Lagu Sebelumnya"><i data-lucide="skip-back"></i></button>
+      <button class="music-ctrl-btn play-btn" id="playPauseBtn" title="Play/Pause"><i data-lucide="play" id="playIcon"></i></button>
+      <button class="music-ctrl-btn" id="nextTrackBtn" title="Lagu Selanjutnya"><i data-lucide="skip-forward"></i></button>
+    </div>
+  </div>
+
+  <!-- Announcement Bar -->
+  <div class="announcement-bar">
+    <div class="announcement-text">
+      🌸 <strong>SPECIAL NOTICE:</strong> Reserved VIP Order #021 for <em>Bibiw</em> is ready at the counter! 💙
+    </div>
+  </div>
+
+  <!-- Main Store Header -->
+  <header class="store-header">
+    <div class="header-container">
+      <div class="brand">
+        <span class="brand-sub">Atelier & Boutique Florale</span>
+        <h1 class="brand-name">Bibey's Florist</h1>
+      </div>
+      
+      <nav class="nav-links">
+        <a href="#featured" class="nav-link">Our Blooms</a>
+        <a href="#special-order" class="nav-link special-tag">VIP Order #021 💌</a>
+        <a href="#scrapbook" class="nav-link">Scrapbook Recap 📖</a>
+        <a href="#cinema" class="nav-link">Cinema Bibiw 🎬</a>
+        <a href="#arcade" class="nav-link">Mini Games 🎮</a>
+        <a href="#jar-section" class="nav-link">Jar of Hearts 🫙</a>
+      </nav>
+
+      <div class="header-actions">
+        <button class="cart-btn" id="openCartBtn" title="Buka Pesanan Rahasia">
+          <i data-lucide="shopping-bag"></i>
+          <span class="cart-count">1</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="content-wrapper">
+    <!-- Hero Section -->
+    <section class="hero-section">
+      <div class="hero-badge">Special 21st Edition • Curated with Devotion 💙</div>
+      <h2 class="hero-title">Happy Turning 21's <br><em>My Beloved Biww 🌸</em></h2>
+      <p class="hero-subtitle">
+        "May the flower garden in your life always blossom, and your jar of hearts be forever full."
+      </p>
+      <div class="hero-buttons">
+        <button class="btn btn-primary" id="claimOrderBtn">
+          <i data-lucide="gift"></i> Buka Pesanan Rahasia #021
+        </button>
+        <a href="#scrapbook" class="btn btn-secondary">
+          <i data-lucide="book-heart"></i> Lihat Scrapbook Kenangan
+        </a>
+        <a href="#arcade" class="btn btn-tertiary">
+          <i data-lucide="gamepad-2"></i> Mainkan Game Bibiw
+        </a>
+      </div>
+    </section>
+
+    <!-- Special Highlight Card for Bibiw -->
+    <section class="special-banner" id="special-order">
+      <div class="special-card">
+        <div class="ribbon">VIP Order #021</div>
+        <div class="special-card-body">
+          <div class="special-tag-line">Handmade for Bibiw's 21st Milestone</div>
+          <h3 class="special-card-title">The 21st Celestial Bloom & Heart Letter</h3>
+          <p class="special-desc">
+            Sebuah buket istimewa berpadu surat rahasia, lilin kue ulang tahun interaktif, dan ribuan doa kebaikan yang dirajut khusus untuk merayakan usia baru pacar tercantikku.
+          </p>
+          <div class="order-details">
+            <span class="price-strike">$999,999.00</span>
+            <span class="price-free">PRICELESS (Paid with Endless Love 💙)</span>
+          </div>
+          <button class="btn btn-special" id="openSurpriseBtn">
+            <span>Buka Surat Ulang Tahun & Tiup Lilin</span>
+            <i data-lucide="sparkles"></i>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Catalog Section (Gimmick Florist) -->
+    <section class="catalog-section" id="featured">
+      <div class="section-heading">
+        <span class="subtitle">Boutique Arrangements</span>
+        <h2>Curated For Your Gentle Heart</h2>
+        <p>Bunga-bunga pilihan yang melambangkan setiap senyum dan kehangatanmu.</p>
+      </div>
+
+      <div class="product-grid">
+        <div class="product-card">
+          <div class="product-img-box">
+            <div class="flower-illustration fl-sun">🌻</div>
+            <span class="product-badge">Most Cheerful</span>
+          </div>
+          <div class="product-info">
+            <h4>Sunlit Chamomile & Honey</h4>
+            <p>Mengingatkanku pada senyummu yang selalu menghangatkan hari-hari paling mendung.</p>
+            <div class="product-footer">
+              <span class="p-price">Free for Bibiw</span>
+              <button class="add-btn" onclick="addToOrder('Sunlit Chamomile')"><i data-lucide="heart"></i> Send Love</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="product-card">
+          <div class="product-img-box">
+            <div class="flower-illustration fl-rose">🌹</div>
+            <span class="product-badge">Pure Romance</span>
+          </div>
+          <div class="product-info">
+            <h4>Blushing Velvet Peonies</h4>
+            <p>Lembut, elegan, dan selalu menjadi alasan kenapa hatiku selalu berdebar menatapmu.</p>
+            <div class="product-footer">
+              <span class="p-price">Free for Bibiw</span>
+              <button class="add-btn" onclick="addToOrder('Blushing Peonies')"><i data-lucide="heart"></i> Send Love</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="product-card highlight-glow">
+          <div class="product-img-box">
+            <div class="flower-illustration fl-crown">👑💙</div>
+            <span class="product-badge special">Bibiw's 21st Choice</span>
+          </div>
+          <div class="product-info">
+            <h4>The 21-Year Celestial Orchid</h4>
+            <p>Bunga langka yang mekar sempurna sekali seumur hidup untuk bidadari umur 21 tahun.</p>
+            <div class="product-footer">
+              <span class="p-price">Reserved Forever</span>
+              <button class="add-btn prime" onclick="openSurpriseModal()"><i data-lucide="sparkles"></i> Open Surprise</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="product-card">
+          <div class="product-img-box">
+            <div class="flower-illustration fl-tulip">🌷</div>
+            <span class="product-badge">Sweet Serenity</span>
+          </div>
+          <div class="product-info">
+            <h4>Pastel Peach Tulips</h4>
+            <p>Melambangkan janji setia untuk selalu ada di sisimu, baik dalam suka maupun duka.</p>
+            <div class="product-footer">
+              <span class="p-price">Free for Bibiw</span>
+              <button class="add-btn" onclick="addToOrder('Pastel Tulips')"><i data-lucide="heart"></i> Send Love</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= MINI SCRAPBOOK RECAP ================= -->
+    <section class="scrapbook-section" id="scrapbook">
+      <div class="section-heading">
+        <span class="subtitle">Memories in Bloom 📖</span>
+        <h2>Bibiw's 21st Chapter Scrapbook</h2>
+        <p>Kumpulan potret manis, tawa sederhana, dan kenangan indah yang kita lalui bersama.</p>
+      </div>
+
+      <div class="scrapbook-container">
+        <div class="scrapbook-desk">
+          <!-- Tape accents and stickers -->
+          <div class="sticker st-tape-1"></div>
+          <div class="sticker st-tape-2"></div>
+          <div class="sticker st-flower">🌸</div>
+          <div class="sticker st-heart">💙</div>
+          <div class="sticker st-bow">🎀</div>
+          <div class="sticker st-bear">🧸</div>
+
+          <div class="scrapbook-page">
+            <div class="scrapbook-header">
+              <span class="scrapbook-date">Volume 21 • Special Edition</span>
+              <h3 class="scrapbook-title">The Girl Who Has My Whole Heart</h3>
+            </div>
+
+            <div class="scrapbook-grid">
+              <!-- Photo 1: 21.jpeg -->
+              <div class="polaroid-item rot-neg1" onclick="openLightbox('21.jpeg', 'Stepping into 21 with grace & radiant beauty 💙')">
+                <div class="washi-tape washi-pink"></div>
+                <div class="polaroid-pic">
+                  <img src="21.jpeg" alt="Bibiw 21" loading="lazy">
+                </div>
+                <div class="polaroid-note">Happy 21st, My Prettiest Muse 🌸</div>
+              </div>
+
+              <!-- Photo 2: 12.jpeg -->
+              <div class="polaroid-item rot-pos2" onclick="openLightbox('12.jpeg', 'The sweetest smile that brightens all my days ✨')">
+                <div class="washi-tape washi-blue"></div>
+                <div class="polaroid-pic">
+                  <img src="12.jpeg" alt="Bibiw Sweet Smile" loading="lazy">
+                </div>
+                <div class="polaroid-note">Your smile is my favorite sunshine ☀️</div>
+              </div>
+
+              <!-- Photo 3: 323.jpeg -->
+              <div class="polaroid-item rot-neg2" onclick="openLightbox('323.jpeg', 'Every candid moment with you is pure magic 🫶🏻')">
+                <div class="washi-tape washi-yellow"></div>
+                <div class="polaroid-pic">
+                  <img src="323.jpeg" alt="Bibiw Candid" loading="lazy">
+                </div>
+                <div class="polaroid-note">Cute little moments with you 🧸</div>
+              </div>
+
+              <!-- Photo 4: 33233.jpeg -->
+              <div class="polaroid-item rot-pos1" onclick="openLightbox('33233.jpeg', 'Cherishing our laughter and shared adventures 🌷')">
+                <div class="washi-tape washi-green"></div>
+                <div class="polaroid-pic">
+                  <img src="33233.jpeg" alt="Bibiw Adventure" loading="lazy">
+                </div>
+                <div class="polaroid-note">Forever making memories together 🍓</div>
+              </div>
+
+              <!-- Photo 5: WhatsApp Image 1 -->
+              <div class="polaroid-item rot-neg1" onclick="openLightbox('WhatsApp Image 2026-11-06 at 23.39.34.jpeg', 'My peaceful harbor and safe home 💙')">
+                <div class="washi-tape washi-pink"></div>
+                <div class="polaroid-pic">
+                  <img src="WhatsApp Image 2026-11-06 at 23.39.34.jpeg" alt="Bibiw Memory 1" loading="lazy">
+                </div>
+                <div class="polaroid-note">Safe & warm in your eyes 💙</div>
+              </div>
+
+              <!-- Photo 6: WhatsApp Image 2 -->
+              <div class="polaroid-item rot-pos2" onclick="openLightbox('WhatsApp Image 2026-11-06 at 23.40.31.jpeg', 'Thank you for making my life complete 🫶🏻')">
+                <div class="washi-tape washi-blue"></div>
+                <div class="polaroid-pic">
+                  <img src="WhatsApp Image 2026-11-06 at 23.40.31.jpeg" alt="Bibiw Memory 2" loading="lazy">
+                </div>
+                <div class="polaroid-note">Forever by your side 💐</div>
+              </div>
+            </div>
+
+            <div class="scrapbook-handwritten">
+              "Terima kasih sudah bertahan sejauh ini, melepaskan luka-luka yang lalu, dan terus mekar menjadi pribadi yang luar biasa indah. Aku bangga banget sama kamu, biww 💙"
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= CINEMA BIBIW (VIDEO PLAYER) ================= -->
+    <section class="cinema-section" id="cinema">
+      <div class="section-heading">
+        <span class="subtitle">Moving Memories 🎬</span>
+        <h2>Cinema Bibiw — Our Video Moments</h2>
+        <p>Dua cuplikan video manis yang mengabadikan tawa dan kebersamaan kita.</p>
+      </div>
+
+      <div class="cinema-grid">
+        <!-- Video 1: asa.mp4 -->
+        <div class="cinema-card">
+          <div class="camcorder-header">
+            <div class="rec-dot"></div>
+            <span>REC • BIBIW_MOMENT_01.MP4</span>
+            <span class="cam-badge">HD</span>
+          </div>
+          <div class="video-wrapper">
+            <video controls preload="metadata" poster="21.jpeg">
+              <source src="asa.mp4" type="video/mp4">
+              Browser kamu tidak mendukung pemutaran video ini.
+            </video>
+          </div>
+          <div class="cinema-caption">
+            <h4>Sweet Snippet #1 🌸</h4>
+            <p>Momen manis yang selalu bikin senyum-senyum sendiri saat diputar ulang.</p>
+          </div>
+        </div>
+
+        <!-- Video 2: aas.mp4 -->
+        <div class="cinema-card">
+          <div class="camcorder-header">
+            <div class="rec-dot"></div>
+            <span>REC • BIBIW_MOMENT_02.MP4</span>
+            <span class="cam-badge">HD</span>
+          </div>
+          <div class="video-wrapper">
+            <video controls preload="metadata" poster="12.jpeg">
+              <source src="aas.mp4" type="video/mp4">
+              Browser kamu tidak mendukung pemutaran video ini.
+            </video>
+          </div>
+          <div class="cinema-caption">
+            <h4>Sweet Snippet #2 💙</h4>
+            <p>Bukti kalau bersama kamu, hal yang paling sederhana pun terasa sangat berharga.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= ARCADE BIBIW (MINI GAMES) ================= -->
+    <section class="arcade-section" id="arcade">
+      <div class="section-heading">
+        <span class="subtitle">Playful Love 🎮</span>
+        <h2>Arcade Bibiw — Game-Game Kecil untuk Kamu</h2>
+        <p>Mainkan game santai ini untuk mengumpulkan cinta dan membuka kupon spesial ulang tahun!</p>
+      </div>
+
+      <div class="arcade-container">
+        <!-- Tab Navigation for Games -->
+        <div class="arcade-tabs">
+          <button class="arcade-tab-btn active" onclick="switchGame('catcher')">
+            <i data-lucide="flower-2"></i> Game 1: Tangkap Bunga & Hati
+          </button>
+          <button class="arcade-tab-btn" onclick="switchGame('scratch')">
+            <i data-lucide="sparkles"></i> Game 2: Gosok Kupon Ulang Tahun
+          </button>
+        </div>
+
+        <!-- Game 1: Garden Catcher -->
+        <div class="game-panel active" id="gameCatcherPanel">
+          <div class="game-info-bar">
+            <div class="info-item"><span>Waktu:</span> <strong id="gameTimer">30s</strong></div>
+            <div class="info-item"><span>Skor Cinta:</span> <strong id="gameScore">0</strong></div>
+            <div class="info-item"><span>Level:</span> <strong>Bibiw's Garden</strong></div>
+          </div>
+          <div class="game-canvas-wrap">
+            <canvas id="catcherCanvas" width="600" height="380"></canvas>
+            <div class="game-overlay-start" id="gameStartOverlay">
+              <h3>🌸 Tangkap Bunga & Hati Biru! 💙</h3>
+              <p>Gerakkan keranjang bunga Bibiw untuk menangkap bunga, stroberi, dan hati biru. Hindari awan petir ya!</p>
+              <button class="btn btn-primary" id="startGameBtn">Mulai Main 🎮</button>
+            </div>
+            <div class="game-overlay-end" id="gameEndOverlay">
+              <h3>🎉 Yaaay! Skor Kamu: <span id="finalScore">0</span> Poin!</h3>
+              <p id="gameEndMessage">Kamu berhasil menangkap seluruh cinta yang kupunya! 💙</p>
+              <button class="btn btn-primary" id="restartGameBtn">Main Lagi 🔄</button>
+            </div>
+          </div>
+          <!-- Mobile Touch Controls -->
+          <div class="mobile-game-controls">
+            <button class="m-ctrl-btn" id="mLeftBtn">◀ Kiri</button>
+            <button class="m-ctrl-btn" id="mRightBtn">Kanan ▶</button>
+          </div>
+          <p class="game-instruction">Gunakan tombol panah ⬅️ ➡️ di keyboard atau sentuh tombol kiri/kanan di HP untuk menggerakkan keranjang.</p>
+        </div>
+
+        <!-- Game 2: Scratch Card -->
+        <div class="game-panel" id="gameScratchPanel">
+          <div class="scratch-game-card">
+            <div class="scratch-header">
+              <span class="scratch-badge">VIP Birthday Coupon 🎟️</span>
+              <h3>Gosok Kupon Berhadiah Spesial Bibiw!</h3>
+              <p>Gunakan mouse atau jarimu untuk menggosok lapisan foil di bawah ini dan temukan hadiahnya!</p>
+            </div>
+
+            <div class="scratch-container">
+              <!-- Underneath reward -->
+              <div class="scratch-reward">
+                <div class="reward-icon">🎁💙</div>
+                <h4 id="couponTitle">KUPON BEBAS MERENGEK & DITURUTIN 24 JAM</h4>
+                <p id="couponDesc">Berlaku seumur hidup! Bisa ditukarkan kapan saja dengan pelukan hangat, traktiran makanan favorit, dan jalan-jalan berdua tanpa batas!</p>
+                <div class="reward-code">VOUCHER ID: BIBIW-TURNING-21</div>
+              </div>
+              <!-- Scratch Canvas Canvas -->
+              <canvas id="scratchCanvas" width="460" height="230"></canvas>
+            </div>
+
+            <div class="scratch-actions">
+              <button class="btn btn-secondary" id="resetScratchBtn">
+                <i data-lucide="rotate-ccw"></i> Ganti Kupon Baru
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= JAR OF HEARTS INTERACTIVE ================= -->
+    <section class="jar-section" id="jar-section">
+      <div class="section-heading">
+        <span class="subtitle">Endless Love Messages 🫙</span>
+        <h2>Bibiw's Jar of Hearts</h2>
+        <p>"...and hope ur jar of hearts is always full 💙"</p>
+      </div>
+
+      <div class="jar-layout">
+        <div class="jar-graphic-wrap">
+          <div class="glass-jar" id="glassJarBtn" title="Klik toples untuk mengambil 1 pesan cinta!">
+            <div class="jar-lid"></div>
+            <div class="jar-neck"></div>
+            <div class="jar-body">
+              <div class="jar-label">Jar of Hearts<br><small>Exclusive for Bibiw</small></div>
+              <div class="jar-hearts-inside">
+                <span class="j-h h1">💙</span>
+                <span class="j-h h2">🌸</span>
+                <span class="j-h h3">💖</span>
+                <span class="j-h h4">🌷</span>
+                <span class="j-h h5">💙</span>
+                <span class="j-h h6">✨</span>
+                <span class="j-h h7">🍓</span>
+                <span class="j-h h8">💙</span>
+              </div>
+            </div>
+          </div>
+          <p class="jar-hint">👆 Ketuk toples untuk mengambil lipatan pesan cinta!</p>
+        </div>
+
+        <div class="jar-message-display">
+          <div class="jar-card-paper" id="jarCardDisplay">
+            <div class="jar-card-stamp">Heart Note #<span id="noteNumber">1</span></div>
+            <div class="jar-card-quote" id="noteText">
+              "Terima kasih sudah selalu jadi alasan aku tersenyum setiap hari. Bersamamu, hal sederhana selalu jadi sangat istimewa. 💙"
+            </div>
+            <div class="jar-card-foot">~ From someone who loves you endlessly</div>
+          </div>
+
+          <div class="jar-buttons">
+            <button class="btn btn-primary" id="pickNoteBtn">
+              <i data-lucide="mail-open"></i> Ambil Pesan Cinta Lain
+            </button>
+            <button class="btn btn-secondary" id="fillJarBtn">
+              <i data-lucide="heart-handshake"></i> Tambah Hati ke Toples (+1 💙)
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Store Footer -->
+  <footer class="store-footer">
+    <div class="footer-blessing">
+      Happy Turning 21's My Dearest Bibiw 💙🌸<br>
+      <small>May your journey ahead be showered with eternal health, boundless joy, and infinite love.</small>
+    </div>
+    <p class="copyright">Bibey's Florist Atelier &copy; 2026 — Forever & Always In Love With You</p>
+  </footer>
+
+  <!-- ================= SURPRISE REVEAL MODAL (THE ENVELOPE & LETTER) ================= -->
+  <div class="surprise-overlay" id="surpriseOverlay">
+    <div class="surprise-modal">
+      <button class="modal-close-btn" id="closeSurpriseBtn" title="Close">✕</button>
+
+      <!-- Step 1: Sealed Envelope -->
+      <div class="reveal-step step-envelope active" id="stepEnvelope">
+        <div class="envelope-container">
+          <div class="envelope-card">
+            <div class="envelope-front">
+              <div class="wax-seal" id="waxSealBtn" title="Klik untuk membuka segel lilin!">
+                <span class="seal-inner">21</span>
+              </div>
+              <div class="envelope-stamp">💐</div>
+              <div class="envelope-address">
+                <span class="to-label">Hand Delivered To:</span>
+                <span class="recipient-name">Dearest Bibiw 💙</span>
+                <span class="occasion-label">On Her 21st Milestone Birthday</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <p class="envelope-hint">Ketuk segel lilin "21" untuk membuka surat ucapan & menyalakan lilin kue ✨</p>
+      </div>
+
+      <!-- Step 2: The Heartfelt Letter & Cake Celebration -->
+      <div class="reveal-step step-letter" id="stepLetter">
+        <div class="birthday-banner">
+          <span class="sparkle-badge">Happy 21st Birthday Milestone</span>
+          <h2 class="birthday-heading">My Beloved Bibiw 💙</h2>
+        </div>
+
+        <!-- Interactive Birthday Cake -->
+        <div class="cake-container">
+          <div class="cake">
+            <div class="candle" id="birthdayCandle" title="Klik lilin untuk membuat permohonan & meniupnya!">
+              <div class="flame" id="flame"></div>
+            </div>
+            <div class="cake-top">
+              <span class="cake-berry">🍓</span>
+              <span class="cake-berry">💙</span>
+              <span class="cake-berry">🍓</span>
+            </div>
+            <div class="cake-tier tier-2">
+              <div class="frosting"></div>
+              <span class="candle-text">21</span>
+            </div>
+            <div class="cake-tier tier-1">
+              <div class="frosting"></div>
+            </div>
+          </div>
+          <p class="cake-instruction" id="cakeInstruction">
+            🎂 <em>Klik api lilin untuk make a wish & tiup lilinnya!</em>
+          </p>
+        </div>
+
+        <!-- The Emotional Letter with the user's exact requested words -->
+        <div class="letter-paper">
+          <div class="letter-stamp-decor">Bibey's Florist • Special Edition #021 💙</div>
+          <div class="letter-salutation">To My Dearest Bibiw,</div>
+
+          <div class="letter-main-content">
+            <p class="letter-lead">
+              happy turning 21's biww💙💙
+            </p>
+
+            <p class="letter-blessing">
+              hope u always surround by happiness and ur jar of hearts is always full, and may the flower garden in your life always blossom.
+            </p>
+
+            <div class="letter-divider-heart">🌸 • 💙 • 🌸</div>
+
+            <p class="letter-body-p">
+              Selamat bertambah usia sayaangg, terima kasihh udah datang dihidup aku memberikan cinta, kasih sayang dan kebahagiaan yang amat besar.
+            </p>
+
+            <p class="letter-body-p">
+              di 20 tahun yang udah kamu lewati, pasti banyak senang sedih yang udah kamu lewatin, masa masa sakit yang berhasil kamu lepaskan, atau masa senang yang mungkin selalu kamu rayakan dengan hal hal sederhana tapi bisa bkin kamu bahagia.
+            </p>
+
+            <p class="letter-body-p">
+              semoga dengan bertambahnya usia kamu, kamu selalu diberikan kesehatan, keselamatan, kebahagiaan dan kasih sayang dari orang orang sekitar kamu, once again, thank u for being a part of my life that makes it complete🫶🏻
+            </p>
+          </div>
+
+          <div class="letter-signature">
+            <span>With all my love and devotion,</span>
+            <div class="signature-name">Yours Always & Forever ❤️💙</div>
+          </div>
+        </div>
+
+        <!-- Floating Love Button -->
+        <div class="love-counter-box">
+          <p>Kirim jutaan ciuman cinta virtual untuk Bibiw:</p>
+          <button class="btn btn-heart-burst" id="loveBurstBtn">
+            <i data-lucide="heart"></i> Klik Kirim Cinta (<span id="loveCount">20</span> 💙)
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Lightbox Modal for Fullscreen Photos -->
+  <div class="lightbox-overlay" id="lightboxOverlay" onclick="closeLightbox()">
+    <div class="lightbox-content" onclick="event.stopPropagation()">
+      <button class="lightbox-close" onclick="closeLightbox()">✕</button>
+      <img id="lightboxImg" src="" alt="Zoom Photo">
+      <div class="lightbox-caption" id="lightboxCaption"></div>
+    </div>
+  </div>
+
+  <!-- Audio Element with playlist -->
+  <audio id="bgAudio" loop preload="auto">
+    <source src="taman bunga - instrument.mp3" type="audio/mp3">
+  </audio>
+
+  <script src="script.js"></script>
+</body>
+</html>
